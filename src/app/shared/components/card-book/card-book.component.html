@@ -1,0 +1,8 @@
+<div class="card image">
+  <img [src]="'http://localhost:3333/files/'+image" class="card-img-top book-image" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-truncate">{{ title }}</h5>
+    <h6>{{ price | currency: 'EUR' : 'symbol': '1.2-3'}}</h6>
+    <p class="text-uppercase small"><i class="fa fa-user-o" aria-hidden="true"></i> {{author}}</p>
+  </div>
+</div>

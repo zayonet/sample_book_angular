@@ -1,0 +1,50 @@
+<!--For all screen-->
+<div class="d-flex justify-content-center align-items-center page">
+  <!--Login & Signup in single container-->
+  <div class="container">
+    <div class="row">
+      <!--Column for about-->
+      <div class="col-sm-7 signup">
+        <div class="content">
+          <h3 class="texto">"Há livros escritos para evitar espaços vazios na estante."</h3>
+          <p><strong>Carlos Drummond de Andrade</strong></p>
+        </div>
+      </div>
+      <!--Column for signup-->
+      <div class="col-md-5">
+        <div class="accountBox text-center">
+          <!-- Default form signup -->
+          <p class="h4 mb-4 text-white">COMECE A VIAJAR PELOS LIVROS</p>
+          <i class="fa fa-user-circle-o avatar" aria-hidden="true"></i>
+          <p class="mb-4 text-white">CRIE SUA CONTA</p>
+          <form (ngSubmit)="onSubmit()" #form="ngForm">
+            <div class="mb-3">
+              <input type="text" name="text" class="form-control" placeholder="Nome" [(ngModel)]="account.name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="email" [(ngModel)]="account.email" required>
+            </div>
+            <div class="mb-3">
+              <input type="password" name="Password" class="form-control" placeholder="Palavra-chave" [(ngModel)]="account.password" required>
+            </div>
+            <div class="d-grid gap-2 pb-2">
+              <button class="btn primary-background-color rounded-pill" type="submit" [disabled]="form.form.invalid">Criar minha conta</button>
+            </div>
+          </form>
+          <!--Login with Social Media Buttons-->
+          <p class="text-center text-white my-4">Ou use sua conta de rede social</p>
+          <div class="btn-group  btn-group-sm w-75" role="group">
+            <button type="button" class="btn btn-outline-secondary" title="Facebook"><i class="fa fa-facebook"></i>
+              Facebook</button>
+            <button type="button" class="btn btn-outline-secondary" title="Apple"><i class="fa fa-apple"></i> Apple</button>
+            <button type="button" class="btn btn-outline-secondary" title="Google"><i class="fa fa-google"></i> Google</button>
+          </div>
+          <hr class="text-white">
+          <div class="text-center py-2">
+            <a [routerLink]="['/login']" class="link-light text-decoration-none">Já tem conta? Faça login</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>

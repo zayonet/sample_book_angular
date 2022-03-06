@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Adicionar um livro</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="title" class="form-label">Título</label>
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="book.title">
+        </div>
+        <div class="col-md-6">
+          <label for="price" class="form-label">Preço</label>
+          <input type="text" class="form-control" id="price" name="price" [(ngModel)]="book.price">
+        </div>
+        <div class="col-12">
+          <label for="author" class="form-label">Autor</label>
+          <input type="text" class="form-control" id="author" name="author" [(ngModel)]="book.author" placeholder="Fernando Dallas">
+        </div>
+        <div class="col-12">
+            <label for="description" class="col-form-label">Descrição:</label>
+            <textarea class="form-control" id="description" name="description" [(ngModel)]="book.description"></textarea>
+        </div>
+        <div class="col-md-5">
+          <label for="editor" class="form-label">Editora</label>
+          <input type="text" class="form-control" id="editor" name="editor">
+        </div>
+        <div class="col-md-4">
+          <label for="category" class="form-label">Categoria</label>
+          <select id="category" class="form-select" name="category" [(ngModel)]="book.category">
+            <option selected>Escolha...</option>
+            <option>Arte</option>
+            <option>Banda desenhada</option>
+            <option>Desporto e Lazer</option>
+            <option>Engenharia</option>
+            <option>Medicina</option>
+            <option>Literatura</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="image" class="form-label">Imagem</label>
+          <input type="file" class="form-control" id="image" name="image" [(ngModel)]="book.image">
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <button class="btn primary-background-color rounded-pill" type="button" (click)="saveBook()">Adicionar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<form>
+  <div class="mb-3">
+    <label for="recipient-name" class="col-form-label">Recipient:</label>
+    <input type="text" class="form-control" id="recipient-name">
+  </div>
+  <div class="mb-3">
+    <label for="message-text" class="col-form-label">Message:</label>
+    <textarea class="form-control" id="message-text"></textarea>
+  </div>
+</form>

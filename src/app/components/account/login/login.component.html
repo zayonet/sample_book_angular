@@ -1,0 +1,93 @@
+<!--For all screen-->
+<div class="d-flex justify-content-center align-items-center page">
+  <!--Login & Signup in single container-->
+  <div class="container">
+  <div class="row">
+    <!--Column for signin-->
+    <div class="col-sm-7 text-center signin">
+      <!-- Default form login -->
+      <form  (ngSubmit)="onSubmit()" #form="ngForm" class="">
+        <div class="container">
+          <p class="h4 mb-4 top">COMECE A VIAJAR PELOS LIVROS</p>
+          <i class="fa fa-user-circle-o avatar" aria-hidden="true"></i>
+          <p class="mb-4">FAÇA LOGIN NESTE SITE</p>
+        <!-- Email -->
+        <div class="mb-3">
+          <input type="email" name="email" placeholder="email" [(ngModel)]="login.email" required class="form-control mb-4" placeholder="&#xf0e0; Email" style="font-family:Arial, FontAwesome">
+        </div>
+        <!-- Password -->
+        <div class="mb-3">
+          <input type="password" name="Password" placeholder="Password" [(ngModel)]="login.password" required class="form-control mb-4" placeholder="&#xf023; Password" style="font-family:Arial, FontAwesome">
+        </div>
+          <!-- Sign in button -->
+        <div class="offset-7 col-5 pb-2">
+          <div class="d-grid gap-2">
+          <button class="btn submitBtn btn-block" type="submit" [disabled]="form.form.invalid">LOGIN </button></div>
+        </div>
+        <p class="text-center signintext my-4">Ou use sua conta de rede social</p>
+        <!--Login with Social Media Buttons-->
+        <div class="btn-group  btn-group-sm w-75" role="group">
+          <button type="button" class="btn btn-outline-secondary" title="Facebook"><i class="fa fa-facebook"></i>
+            Facebook</button>
+          <button type="button" class="btn btn-outline-secondary" title="Apple"><i class="fa fa-apple"></i> Apple</button>
+          <button type="button" class="btn btn-outline-secondary" title="Google"><i class="fa fa-google"></i> Google</button>
+        </div>
+        <hr class="text-grey">
+        <div class="py-2">
+          <a class="link-secondary text-decoration-none ">Esqueci a palavra-passe! </a>
+          <a [routerLink]="['/create-account']" class="link-danger text-decoration-none">Não tem conta? Registe-se aqui</a>
+        </div>
+        </div>
+      </form>
+    </div>
+    <!--Column for signin-->
+    <div class="col-sm-5 signup">
+      <h2 class="HelloFriend">Olá, Amigo!</h2>
+      <div class="text-center text-white my-5">
+        <h4>"Há livros escritos para evitar espaços vazios na estante."</h4>
+        <p class="text-right"><small> <i class="fa fa-book" aria-hidden="true"></i> Carlos Drummond de Andrade</small></p>
+      </div>
+      <div class="text-center">
+        <a class="btn btn-info btn-block signupbtn" [routerLink]="['/create-account']">REGISTAR</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- <div class="container my-5">
+  <div class="row">
+    <div class="col-md-7">
+      <h1>COMECE A VIAJAR <br>PELOS LIVROS</h1>
+      <div class="image my-5">
+        <img src="assets/img/book-group.png" alt="books" class="img-fluid">
+      </div>
+      <h3>"Há livros escritos para evitar espaços vazios na estante."</h3>
+      <p><strong>Carlos Drummond de Andrade</strong></p>
+    </div>
+    <div class="col-md-5">
+      <h1>LOGIN</h1>
+      <div class="loginBox text-center">
+        <i class="fa fa-user-circle-o avatar" aria-hidden="true"></i>
+        <h3>Sign in here</h3>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+          <div class="inputBox">
+            <input type="email" name="email" placeholder="email" [(ngModel)]="login.email" required>
+          </div>
+          <div class="inputBox">
+            <input type="password" name="Password" placeholder="Password" [(ngModel)]="login.password" required>
+          </div>
+          <div class="d-grid gap-2 pb-2">
+            <button class="btn primary-background-color rounded-pill" type="submit" [disabled]="form.form.invalid">Login</button>
+          </div>
+        </form>
+        <hr class="text-white">
+        <a class="text-warning">Esqueci a palavra-passe<br> </a>
+        <div class="text-center py-2">
+          <a [routerLink]="['/create-account']" class="link-light text-decoration-none">Não tem conta? Registe-se aqui</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->

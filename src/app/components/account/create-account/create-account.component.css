@@ -1,0 +1,77 @@
+.page {
+   display: flex;
+   justify-content: center;
+     min-height: 100vh;
+     background-color: #ede7e6;
+ }
+.signup {
+    background-image: url(../../../../assets/img/login4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 2%;
+ }
+ .signup .texto {
+  margin-top: 20%;
+  text-align: center;
+  border-radius: 100px 0 100px 0;
+  background: rgb(0, 0, 0);
+  /*Fallbackcolor*/background: rgba(0, 0, 0, 0.5);
+  /*Blackbackgroundwith0.5opacity*/color: #f1f1f1;
+  -webkit-border-radius: 100px 0 100px 0;
+  -moz-border-radius: 100px 0 100px 0;
+  -ms-border-radius: 100px 0 100px 0;
+  -o-border-radius: 100px 0 100px 0;
+}
+.accountBox {
+    background: #242525;
+    border-radius: 10px;
+    padding: 40px;
+}
+.avatar{
+  font-size: 7em;
+  color: #e3e3e3;
+  margin: 12px 0;
+}
+.accountBox input[type="text"], input[type="email"],
+.accountBox input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #262626;
+    outline: none;
+    height: 40px;
+    color: #fe4e16;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border: 1px solid #fe4e16;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+
+.accountBox input[type="text"]:hover, input[type="email"]:hover,
+.accountBox input[type="password"]:hover {
+    box-shadow: 0 0 5px rgba(254, 78, 22, .3), 0 0 10px rgba(254, 78, 22, .2), 0 0 15px rgba(254, 78, 22, .1), 0 2px 0 black
+}
+
+.accountBox input[type="text"]:focus, input[type="email"]:focus,
+.accountBox input[type="password"]:focus {
+    border-bottom: 2px solid #fe4e16;
+}
+
+.primary-background-color{
+  background-color: #fe4e16!important;
+  color: #fff!important;
+
+}
+.secondary-background-color{
+  background-color: #242525;
+  color: #fe4e16
+
+}
+.tertiary-background-color{
+  background-color: #e3e3e3;
+}

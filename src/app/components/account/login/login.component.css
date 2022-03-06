@@ -1,0 +1,92 @@
+ .page {
+   display: flex;
+   justify-content: center;
+     min-height: 100vh;
+     background-color: #ede7e6;
+ }
+
+ .signintext {
+     margin: 20px 0;
+     color: #969799
+ }
+
+ .top {
+     color: #fe4e16
+ }
+
+.avatar{
+  font-size: 8em;
+  color: #e3e3e3;
+  margin: 12px 0;
+}
+ .ForgotPassBtn {
+     background-color: white;
+     color: black;
+     border-bottom: 1px solid #c7c5c5;
+     padding-bottom: 3px;
+     text-decoration: none !important;
+     margin-right: 20%;
+     border-top-color: none
+ }
+
+ .submitBtn {
+     background-color: #fe4e16!important;
+     border: solid 1px #fe4e16;
+     color: #fff;
+ }
+
+ .signupbtn {
+     border-radius: 25px;
+     width: 25%;
+     margin: auto;
+     background-color: #fe4e16!important;
+     border: solid 1px #fe4e16;
+     font-size: 10px
+ }
+
+ .signin {
+     background-color: white;
+     padding: 2%;
+     margin: auto;
+ }
+
+ .signup {
+    background-image: url(../../../../assets/img/login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 2%;
+ }
+
+ .form-control {
+     background-color: #ebe8e8
+ }
+
+ .custom-control {
+     margin-bottom: 2%
+ }
+
+ h2.HelloFriend {
+     color: #fff !important;
+     font-weight: 200px;
+     margin-top: 30%;
+     margin-bottom: 10%
+ }
+
+ @media only screen and (max-width: 600px) {
+     row {
+         margin-top: 5%;
+         margin-left: 1%;
+         margin-right: 1%
+     }
+ }
+
+ input,
+ input:focus {
+     border-width: 0px;
+     outline: 0;
+     -webkit-appearance: none;
+     box-shadow: none;
+     -moz-box-shadow: none;
+     -webkit-box-shadow: none
+ }

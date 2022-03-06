@@ -1,0 +1,72 @@
+<div class="tertiary-background-color">
+  <div class="container">
+    <div class="row py-5">
+      <h1 class="display-4">A nossa bibloteca</h1>
+    </div>
+    <!-- Search Bar -->
+    <div class="row height d-flex justify-content-center align-items-center mb-5">
+      <div class="col-md-6">
+        <div class="form">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input type="text" class="form-control form-input"
+            placeholder="Pesquisar um livro...">
+          <span class="left-pan"><i class="fa fa-microphone"></i></span>
+        </div>
+      </div>
+    </div>
+    <!-- List books -->
+    <div class="row pb-5">
+      <div class="col-md-3 mb-3">
+        <div class="card new">
+            <i class="fa fa-plus-square-o icon_btn" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#add-book"></i>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3" *ngFor="let book of listBooks">
+        <app-card-book
+          [image] = "book.image"
+          [title] = "book.title"
+          [price] = "book.price"
+          [author] = "book.author"
+        ></app-card-book>
+        <!--
+        <div class="card image">
+          <img [src]="book.image" class="card-img-top book-image" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-truncate">{{ book.title }}</h5>
+            <h6>{{ book.price | currency: 'EUR' : 'symbol': '1.2-3'}}</h6>
+            <p class="text-uppercase small"><i class="fa fa-user-o" aria-hidden="true"></i> {{book.author}}</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div  class="modal fade" id="add-book" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

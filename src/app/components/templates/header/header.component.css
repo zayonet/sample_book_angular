@@ -1,0 +1,8 @@
+.header .logo {
+  margin-top: -10px;
+}
+.dropdown-menu .dropdown-item img{
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}

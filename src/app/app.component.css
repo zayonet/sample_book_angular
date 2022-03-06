@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0
+}
+body {
+  font-family: arial;
+  font-size: 1.6em;
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+.primary-background-color{
+  background-color: #fe4e16!important;
+  color: #fff!important;
+
+}
+.secondary-background-color{
+  background-color: #242525;
+  color: #fe4e16
+
+}
+.tertiary-background-color{
+  background-color: #5d5c5c;
+  color: #242525
+}

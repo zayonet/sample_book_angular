@@ -1,0 +1,43 @@
+<div class="profile">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center py-5">
+      <!--Column for profile-->
+      <div class="col-md-4">
+        <div class="profileBox text-center">
+          <i class="fa fa-user-circle-o avatar" aria-hidden="true"></i>
+        <p class="mb-4">ATULIZE SUA CONTA</p>
+          <!-- Default form signup -->
+          <form >
+            <!-- for-control name -->
+            <div class="mb-3">
+              <input type="text" name="text" class="form-control" placeholder="Nome" [(ngModel)]="user.name" required>
+            </div>
+            <!-- for-control email -->
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="email" [(ngModel)]="user.email" required>
+            </div>
+            <!-- for-control password -->
+            <div class="mb-3">
+              <input type="password" name="Password" class="form-control" placeholder="Palavra-chave"
+                [(ngModel)]="user.password" required maxlength="8" minlength="6">
+            </div>
+            <!-- save and delete account info button -->
+            <div class="d-grid gap-2 pb-2">
+              <button class="btn btn-outline-secondary rounded-pill" type="submit" (click)="updateTo()">Atualizar
+                minha conta</button>
+                <swal #deleteSwal
+                title="ATENÇÃO"
+                text="Deseja realmente excluir a sua conta: {{user.name}} ?"
+                icon="question"
+                [showCancelButton]="true"
+                  [focusCancel]="true" (confirm)="deleteTo(user)">
+                </swal>
+                <button [swal]="deleteSwal" class="btn primary-background-color rounded-pill">Excluir minha conta</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
