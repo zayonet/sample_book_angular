@@ -27,6 +27,7 @@ import { CreateAccountComponent } from './components/account/create-account/crea
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { httpInterceptorProviders } from './components/http-interceptor';
 import { ProfileComponent } from './components/account/profile/profile.component';
+import { ShowBookComponent } from './components/book/show-book/show-book.component';
 
 registerLocaleData(localePt)
 
@@ -41,7 +42,8 @@ registerLocaleData(localePt)
     LoginComponent,
     CreateAccountComponent,
     AuthenticationComponent,
-    ProfileComponent
+    ProfileComponent,
+    ShowBookComponent
   ],
   imports: [
     BrowserModule,

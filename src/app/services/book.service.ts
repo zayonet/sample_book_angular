@@ -22,6 +22,21 @@ export class BookService {
     );
   }
 
+  createBook(book: IBook): Observable<any> {
+    console.log(book.image)
+    let formData: any = new FormData();
+    formData.append("title", book.title);
+    formData.append("price", book.price);
+    formData.append("category", book.category);
+    formData.append("description", book.description);
+    formData.append("image", book.image);
+    formData.append("user_id", book.user_id);
+    return this.http.post<IBook>(this.URL, formData).pipe(
+      map(retorno => retorno),
+      catchError(error => this.showError(error))
+    );
+  }
+
   showError(e: any): Observable<any> {
     this.showMessage('ERRO!!!', 'Não foi possível realizar a operação', 'toast-error');
     return EMPTY;
@@ -31,10 +46,4 @@ export class BookService {
     this.toastr.show(title, message, { closeButton: true, progressBar: true }, type);
   }
 
-  createBook(book: IBook): Observable<any> {
-    return this.http.post<IBook>(this.URL, book).pipe(
-      map(item => item),
-      catchError(error => this.showError(error))
-    );
-  }
 }

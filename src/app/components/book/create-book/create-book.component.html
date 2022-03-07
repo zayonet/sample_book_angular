@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-3">
           <label for="image" class="form-label">Imagem</label>
-          <input type="file" class="form-control" id="image" name="image" [(ngModel)]="book.image">
+          <input type="file" class="form-control" id="image" name="image"  (change)="uploadFile($event)">
         </div>
         <div class="d-grid gap-2 col-3 mx-auto">
             <button class="btn primary-background-color rounded-pill" type="button" (click)="saveBook()">Adicionar</button>
