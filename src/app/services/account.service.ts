@@ -1,8 +1,8 @@
 import { environment } from './../../environments/environment';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, firstValueFrom, Observable, of, throwError } from 'rxjs';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, firstValueFrom, Observable } from 'rxjs';
+import { catchError, map, } from 'rxjs/operators';
 
 import { ToastrService } from 'ngx-toastr';
 import jwt_decode from 'jwt-decode'
