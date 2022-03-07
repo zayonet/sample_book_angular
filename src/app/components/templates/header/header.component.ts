@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   currentUser = {}
   constructor(private accountService: AccountService, private actRoute: ActivatedRoute) {
     let id = this.actRoute.snapshot.paramMap.get('id');
-    let user = accountService.getUserId();
+    let user = accountService.getUserIdStorage();
     //console.log(user);
     if (!user && !id && user !== id) { //certo
       /* if (user !== id) { */

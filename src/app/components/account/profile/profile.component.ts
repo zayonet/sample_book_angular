@@ -2,7 +2,7 @@ import { IUser } from './../../../model/IUser.model';
 
 import { AccountService } from '../../../services/account.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     public accountService: AccountService,
     private actRoute: ActivatedRoute,
-    fb: FormBuilder
+    private router: Router
   ) {
     let id = this.actRoute.snapshot.paramMap.get('id');
     let user = window.localStorage.getItem('_id');
@@ -48,19 +48,26 @@ export class ProfileComponent implements OnInit {
   async updateTo() {
     try {
       const result = await this.accountService.updateAccount(this.user)
-        .then(retorno => this.user = retorno)
+        .then(retorno => {
+          this.user = retorno;
+          this.accountService.showMessage('SISTEMA', `${this.user.name} foi atualizado com sucesso. ID: ${this.user.id}`, 'toast-success');
+          this.router.navigate([`/profile/${this.user.id}`])
+        })
         .catch(onrejected => console.error(onrejected)
         );
-      console.log(result);
     } catch (error) {
-      console.log(error)
+      this.accountService.showError(error);
     }
   }
 
   async deleteTo(user: IUser) {
     try {
       const result = await this.accountService.deleteAccount(user.id)
-        .then(retorno => this.user = retorno)
+        .then(retorno => {
+          this.user = retorno;
+          this.accountService.showMessage('SISTEMA', `${this.user.name} foi excluido com sucesso. ID: ${this.user.id}`, 'toast-success');
+          this.accountService.signOut();
+        })
         .catch(onrejected => console.error(onrejected)
         );
       console.log(result);
