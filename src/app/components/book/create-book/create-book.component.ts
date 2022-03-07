@@ -1,4 +1,5 @@
 import { BookService } from './../../../services/book.service';
+import { AccountService } from './../../../services/account.service';
 import { IBook } from './../../../model/IBook.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,12 +17,17 @@ export class CreateBookComponent implements OnInit {
     author: "",
     description: "",
     category: "",
-    image: "",
-    user_id: "92d76c40-50d7-424d-b9c3-bdae4e713786"
+    image: [],
+    user_id: this.accountService.userIn.id
   }
-  constructor(private bookService: BookService, private router: Router) { }
+  constructor(private bookService: BookService, private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  uploadFile(event: any) {
+    const file = event.target.files ? event.target.files[0] : '';
+    this.book.image = file;
   }
 
   saveBook(): void {

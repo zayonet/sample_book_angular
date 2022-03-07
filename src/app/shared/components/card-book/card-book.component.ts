@@ -12,7 +12,7 @@ export class CardBookComponent implements OnInit {
   @Input() author: string = ""
   @Input() description: string = ""
   @Input() category: string = ""
-  @Input() image: string = ""
+  @Input() image: File[] = []
   @Input() created_at: string = ""
   @Input() update_at: string = ""
 
