@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,11 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { httpInterceptorProviders } from './components/http-interceptor';
 import { ProfileComponent } from './components/account/profile/profile.component';
 import { ShowBookComponent } from './components/book/show-book/show-book.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { CategoryComponent } from './components/book/category/category.component';
+import { AboutComponent } from './components/about/about.component';
 
 registerLocaleData(localePt)
 
@@ -43,17 +49,23 @@ registerLocaleData(localePt)
     CreateAccountComponent,
     AuthenticationComponent,
     ProfileComponent,
-    ShowBookComponent
+    ShowBookComponent,
+    CategoryComponent,
+    AboutComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    RouterModule,
     NgbModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    Ng2OrderModule,
     ToastrModule.forRoot(), // ToastrModule added,
     SweetAlert2Module.forRoot()
   ],

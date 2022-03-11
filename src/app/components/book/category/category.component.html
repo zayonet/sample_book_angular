@@ -1,0 +1,23 @@
+<div class="tertiary-background-color">
+  <div class="container">
+    <div class="row py-5">
+      <h1 class="display-4">Que categoria é que procura?</h1>
+    </div>
+    <!-- Search Bar -->
+    <div class="row height d-flex justify-content-center align-items-center mb-2">
+      <div class="col-md-6">
+        <div class="form">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input type="text" class="form-control form-input" name="searchCategory" placeholder="Pesquisar categoria..." [(ngModel)]="searchCategory" (ngModelChange)="SearchByCategory()" placeholder="Pesquisar um livro...">
+          <span class="left-pan"><i class="fa fa-microphone"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-sm-3 mb-3 d-grid gap-2 mx-auto" *ngFor="let category of categories">
+          <button class="btn btn-outline-dark  mx-3 px-5 rounded-pill">{{category.category}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+

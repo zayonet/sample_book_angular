@@ -1,0 +1,113 @@
+.page {
+   display: flex;
+   justify-content: center;
+     min-height: 100vh;
+     background-color: #242525;
+ }
+
+/* .descriptionBox {
+    padding: 40px;
+} */
+
+.image{
+    max-height: 459px;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+.image .book-image{
+    min-height: 449px!important;
+    max-height: 459px!important;
+    object-fit: cover;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+
+.primary-color{
+  color: #fe4e16!important;
+
+}
+.primary-background-color{
+  background-color: #fe4e16!important;
+  color: #fff!important;
+
+}
+.secondary-background-color{
+  background-color: #242525;
+  color: #fe4e16
+
+}
+.tertiary-background-color{
+  background-color: #e3e3e3;
+}
+
+
+.new{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 429px;
+    border: 2px solid #d1d5db;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+
+.new .icon_btn {
+  font-size: 48px;
+  cursor: pointer;
+  color: #242525;
+}
+
+.new .icon_btn:hover {
+  color: #fe4e16;
+}
+
+.contact-form {
+  background-color: #ede7e6;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 28px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #fe4e16;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  background-color: transparent;
+}
+.contact-form .input-text:focus {
+  outline: none;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+  -webkit-transform: translateY(-24px);
+          transform: translateY(-24px);
+}
+.contact-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #fe4e16;
+  cursor: text;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out,
+  -webkit-transform .2s ease-in-out;
+}

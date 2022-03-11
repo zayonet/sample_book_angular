@@ -11,6 +11,9 @@ export class HomeComponent implements OnInit {
   price: number = 12.25;
   description: string = 'Cards support a wide variety of content, including images, text, list groups, links, and more. Below are examples of what’s supported.';
   image: string = "assets/img/books/book1.jpeg"
+  image1: string = "assets/img/books/book1.jpeg"
+  image2: string = "assets/img/books/book2.jpeg"
+  image3: string = "assets/img/books/book3.jpeg"
   footer: string = "assets/img/footer_book.svg"
 
   constructor() { }

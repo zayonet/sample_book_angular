@@ -1,8 +1,10 @@
+
 <div class="card image">
   <img [src]="'http://localhost:3333/files/'+image" class="card-img-top book-image" alt="...">
-  <div class="card-body">
-    <h5 class="card-title text-truncate">{{ title }}</h5>
-    <h6>{{ price | currency: 'EUR' : 'symbol': '1.2-3'}}</h6>
-    <p class="text-uppercase small"><i class="fa fa-user-o" aria-hidden="true"></i> {{author}}</p>
+  <div class="card-body position-relative">
+    <h5 class="card-title text-truncate mb-0 pb-0">{{ title }}</h5>
+    <span class="text-secondary small text-truncate mt-n2"> {{created_at | date: 'medium'}} </span>
+    <h6 class="pt-2 primary-color"><strong>{{ price | currency: 'EUR' : 'symbol': '1.2-3'}}</strong></h6>
+    <p class="text-uppercase small text-truncate"><i class="fa fa-user-o" aria-hidden="true"></i> {{author}}</p>
   </div>
 </div>

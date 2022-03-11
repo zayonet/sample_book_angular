@@ -4,14 +4,50 @@
       <h1 class="display-4">A nossa bibloteca</h1>
     </div>
     <!-- Search Bar -->
-    <div class="row height d-flex justify-content-center align-items-center mb-5">
+    <div class="row height d-flex justify-content-center align-items-center mb-2">
       <div class="col-md-6">
         <div class="form">
           <i class="fa fa-search" aria-hidden="true"></i>
-          <input type="text" class="form-control form-input"
+          <input type="text" class="form-control form-input" name="searchTitle" [(ngModel)]="searchTitle" (ngModelChange)="SearchByTitle()"
             placeholder="Pesquisar um livro...">
           <span class="left-pan"><i class="fa fa-microphone"></i></span>
         </div>
+      </div>
+    </div>
+    <!-- Search Bar -->
+    <div class="row d-flex justify-content-center mb-5">
+      <div class="col">
+        <span (click)="sort('id')">Ordenar por id &nbsp; <i class="fa fa-sort" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="col">
+        <span (click)="sort('title')">Ordenar por título A-Z &nbsp; <i class="fa fa-sort" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="col">
+        <span (click)="sort('price')">Ordenar por preço &nbsp; <i class="fa fa-sort" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="col">
+        <span (click)="sort('created_at')">Ordenar por data &nbsp; <i class="fa fa-sort" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="col">
+        <span (click)="sort('author')">Ordenar por autor &nbsp; <i class="fa fa-sort" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="col">
+        <select id="sort-by" (change)="sorts($event)">
+          <option value="" selected disabled hidden>Ordenar</option>
+          <option value="TitleLow">Livros de A-Z</option>
+          <option value="TitleHight">Livros de Z-A</option>
+          <option value="AuthorLow">Autores de A-Z</option>
+          <option value="AuthorHight">Autores de Z-A</option>
+          <option value="DateLow">A primeira data à última data</option>
+          <option value="DateHight">A última data à primeira data</option>
+          <option value="Low">O preço de baixo à alto</option>
+          <option value="High">O preço de alto à baixo</option>
+        </select>
       </div>
     </div>
     <!-- List books -->
@@ -21,50 +57,111 @@
             <i class="fa fa-plus-square-o icon_btn" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#add-book"></i>
         </div>
       </div>
-      <div class="col-md-3 mb-3" *ngFor="let book of listBooks">
+      <div class="col-md-3 mb-3" *ngFor="let book of listBooks | orderBy: key: reverse | paginate:{itemsPerPage: 7, currentPage:p};">
+        <a class="text-reset text-decoration-none" routerLink="/book/{{book.id}}">
         <app-card-book
           [image] = "book.image"
           [title] = "book.title"
           [price] = "book.price"
           [author] = "book.author"
-        ></app-card-book>
-        <!--
-        <div class="card image">
-          <img [src]="book.image" class="card-img-top book-image" alt="...">
-          <div class="card-body">
-            <h5 class="card-title text-truncate">{{ book.title }}</h5>
-            <h6>{{ book.price | currency: 'EUR' : 'symbol': '1.2-3'}}</h6>
-            <p class="text-uppercase small"><i class="fa fa-user-o" aria-hidden="true"></i> {{book.author}}</p>
-          </div>
-        </div> -->
+          [description] = "book.description"
+          [category] = "book.category"
+          [publishing_company] = "book.publishing_company"
+          [created_at] = "book.created_at"
+
+        ></app-card-book></a>
       </div>
+    </div>
+    <div class="row py-5 text-center">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>
 
 <!-- Modal -->
-<div  class="modal fade" id="add-book" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+<div class="modal fade" id="add-book" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content contact-form">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Adicionar um livro</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+        <!--book form-->
+        <form class="row g-3 needs-validation" novalidate #form="ngForm">
+          <div class="form-field col-md-6">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="input-text" id="title" name="title"
+              [(ngModel)]="book.title"
+              #title="ngModel"
+              [ngClass]="{ 'is-invalid': title.invalid }"
+              minlength="3" required autocomplete="off"
+            >
+            <div class="invalid-feedback text-danger" *ngIf="title.invalid && (title.dirty || title.touched)">
+              <div *ngIf="title.errors?.['required']"> Campo obrigatório. </div>
+              <div *ngIf="title.errors?.['minlength']"> O campo título deve ter pelo menos 3 caracteres. </div>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+          <div class="form-field col-md-6">
+            <label for="price" class="form-label">Preço</label>
+            <input type="number" class="input-text" id="price" name="price" [(ngModel)]="book.price"
+              #price="ngModel" [ngClass]="{ 'is-invalid': price.invalid }" minlength="1" required autocomplete="off"
+            >
+            <div class="invalid-feedback" *ngIf="price.invalid && (price.dirty || price.touched)">
+              <div *ngIf="price.errors?.['required']"> Campo obrigatório. </div>
+              <div *ngIf="price.errors?.['minlength']"> O campo Preço deve ter pelo menos 1 caracteres.</div>
+            </div>
+          </div>
+          <div class="form-field col-12">
+            <label for="author" class="form-label">Autor</label>
+            <input type="text" class="input-text" id="author" name="author" [(ngModel)]="book.author"
+              #author="ngModel" [ngClass]="{ 'is-invalid': author.invalid }" minlength="3" required autocomplete="off"
+            >
+            <div class="invalid-feedback" *ngIf="author.invalid && (author.dirty || author.touched)">
+              <div *ngIf="author.errors?.['required']"> Campo obrigatório. </div>
+              <div *ngIf="author.errors?.['minlength']"> O campo Autor deve ter pelo menos 3 caracteres.</div>
+            </div>
+          </div>
+          <div class="form-field col-12">
+            <label for="description" class="col-form-label">Descrição:</label>
+            <textarea class="input-text" id="description" name="description"
+              [(ngModel)]="book.description"></textarea>
+          </div>
+          <div class="form-field col-md-4">
+            <label for="editor" class="form-label">Editora</label>
+            <input type="text" class="input-text" id="editor" name="editor" [(ngModel)]="book.publishing_company" #editor="ngModel" [ngClass]="{ 'is-invalid': editor.invalid }" minlength="3" required autocomplete="off"
+            >
+            <div class="invalid-feedback" *ngIf="editor.invalid && (editor.dirty || editor.touched)">
+              <div *ngIf="editor.errors?.['required']"> Campo obrigatório. </div>
+              <div *ngIf="editor.errors?.['minlength']"> O campo Editora deve ter pelo menos 3 caracteres.</div>
+            </div>
+          </div>
+          <div class="form-field col-md-4">
+            <label for="category" class="form-label">Categoria</label>
+            <select id="category" class="input-text" name="category" [(ngModel)]="book.category" #category="ngModel" [ngClass]="{ 'is-invalid': category.invalid }" required >
+              <option selected>Escolha...</option>
+              <option>Arte</option>
+              <option>Banda desenhada</option>
+              <option>Desporto e Lazer</option>
+              <option>Engenharia</option>
+              <option>Medicina</option>
+              <option>Literatura</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="category.invalid && (category.dirty || category.touched)">
+              <div *ngIf="category.errors?.['required']"> Campo obrigatório. </div>
+            </div>
+          </div>
+          <div class="col-md-4 form-field">
+            <label for="image" class="form-label">Adicionar imagem</label>
+            <input type="file" class="input-text" (change)="uploadFile($event)" aria-describedby="image"
+              aria-label="Upload">
+          </div>
+          <div class="d-grid gap-2 col-3 mx-auto">
+            <button class="btn primary-background-color rounded-pill" type="button" (click)="saveBook()"
+              data-bs-dismiss="modal">Adicionar</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

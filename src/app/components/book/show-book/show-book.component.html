@@ -1,1 +1,115 @@
-<p>show-book works!</p>
+<!--For all screen-->
+<div class="d-flex justify-content-center align-items-center page">
+  <!--Book container-->
+  <div class="container">
+    <div class="row">
+      <!-- breacrumb initial -->
+      <nav aria-label="breadcrumb" class="mb-5">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/book" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="primary-color text-decoration-none">A nossa bibloteca</a></li>
+          <li class="breadcrumb-item" class="link-light px-3"><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+          <li class="breadcrumb-item" aria-current="page" class="text-secondary">{{book.title}}</li>
+        </ol>
+      </nav>
+
+      <!--Column for book-->
+      <div class="col-sm-3 signup">
+        <div class="card image">
+          <img [src]="'http://localhost:3333/files/'+book.image" class="card-img-top book-image" alt="...">
+        </div>
+      </div>
+      <!--Column for description-->
+      <div class="col-sm-9">
+        <div class="descriptionBox text-left text-white">
+          <h4 class="display-4 text-uppercase">
+              {{ book.title }}
+          </h4>
+          <hr class="text-light">
+          <h5 class="text-capitalize"><strong>{{book.author}} </strong> . {{book.category}}</h5>
+          <p class="text-capitalize">Editora: {{book.publishing_company}}, {{book.created_at | date: 'MMMM-y'}}</p>
+          <h2>{{ book.price | currency: 'EUR' : 'symbol': '1.2-3'}}</h2>
+          <hr class="text-light">
+          <p><strong class="text-seconday">Descrição:</strong> {{book.description}}</p><hr class="text-light">
+          <button class="btn primary-background-color rounded-pill px-5 mt-3">Adicionar</button>
+          <div class="mt-5 text-white action">
+            <a class="link-secondary text-decoration-underline" href="" data-bs-toggle="modal" data-bs-target="#add-book"> <i class="fa fa-edit" aria-hidden="true"></i> Editar</a>
+            ||
+            <swal #deleteSwal title="ATENÇÃO" text="Deseja realmente excluir a sua conta: {{book.title}} ?" icon="question"
+              [showCancelButton]="true" [focusCancel]="true" (confirm)="deleteTo(book)">
+            </swal>
+            <a href="javascript:void()" class="link-secondary text-decoration-underline" [swal]="deleteSwal" ><i class="fa fa-trash-o" aria-hidden="true"></i> Apagar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="add-book" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content contact-form">
+      <div class="modal-header">
+        <h5 class="modal-title">{{book.title}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Row break -->
+        <div class="row">
+        <!--Column for book Previews-->
+        <div class="col-sm-3 signup">
+          <div class="card image">
+            <img [src]="'http://localhost:3333/files/'+book.image" class="card-img-top book-image" alt="Image Book">
+          </div>
+        </div>
+        <!--Column for book form-->
+        <div class="col-sm-9 signup">
+          <form class="row g-3">
+            <div class="form-field col-md-6">
+              <label for="title" class="form-label">Título</label>
+              <input type="text" class="input-text" id="title" name="title" [(ngModel)]="book.title">
+            </div>
+            <div class="form-field col-md-6">
+              <label for="price" class="form-label">Preço</label>
+              <input type="text" class="input-text" id="price" name="price" [(ngModel)]="book.price">
+            </div>
+            <div class="form-field col-12">
+              <label for="author" class="form-label">Autor</label>
+              <input type="text" class="input-text" id="author" name="author" [(ngModel)]="book.author"
+                placeholder="Fernando Dallas">
+            </div>
+            <div class="form-field col-12">
+              <label for="description" class="col-form-label">Descrição:</label>
+              <textarea class="input-text" id="description" name="description" [(ngModel)]="book.description"></textarea>
+            </div>
+            <div class="form-field col-md-4">
+              <label for="editor" class="form-label">Editora</label>
+              <input type="text" class="input-text" id="editor" name="editor" [(ngModel)]="book.publishing_company">
+            </div>
+            <div class="form-field col-md-4">
+              <label for="category" class="form-label">Categoria</label>
+              <select id="category" class="input-text" name="category" [(ngModel)]="book.category"><option value="">Escolha categoria...</option>
+              <option *ngFor="let category of categories" [value]="category.category">
+                {{category.category}}
+              </option>
+              </select>
+            </div>
+            <div class="col-md-4 form-field">
+            <label for="image" class="form-label">Adicionar nova imagem? <button (click)="toggle()" class="btn btn-sm btn-secondary" type="button" id="image">{{buttonName}}</button></label>
+            <input type="file" class="input-text" (change)="uploadFile($event)"
+                aria-describedby="image" aria-label="Upload" *ngIf="show; else elseShow">
+            <ng-template #elseShow>
+                <input type="text" class="input-text" name="image" readonly [(ngModel)]="book.image">
+            </ng-template>
+            </div>
+            <div class="d-grid gap-2 col-3 mx-auto">
+              <button class="btn primary-background-color rounded-pill" type="button" (click)="updateTo()" data-bs-dismiss="modal" >Adicionar</button>
+            </div>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

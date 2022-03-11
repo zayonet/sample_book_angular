@@ -1,9 +1,5 @@
-.image .book-image{
-  min-height: 299px;
-  max-height: 300px;
-}
-.newsletter-image{
-  height: 400px;
+.page{
+  height: 100vh;
 }
 .primary-background-color{
   background-color: #fe4e16!important;
