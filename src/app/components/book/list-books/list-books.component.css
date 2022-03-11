@@ -1,21 +1,5 @@
-.image{
-    max-height: 429px;
-    border-radius: 18px;
-    -webkit-border-radius: 18px;
-    -moz-border-radius: 18px;
-    -ms-border-radius: 18px;
-    -o-border-radius: 18px;
-}
-.image .book-image{
-    min-height: 320px!important;
-    max-height: 321px!important;
-    object-fit: fill;
-    border-radius: 18px 18px 0 0 ;
-    -webkit-border-radius: 18px 18px 0 0 ;
-    -moz-border-radius: 18px 18px 0 0 ;
-    -ms-border-radius: 18px 18px 0 0 ;
-    -o-border-radius: 18px 18px 0 0 ;
-}
+
+/* Search Input */
 .form {
     position: relative
 }
@@ -53,24 +37,12 @@
     box-shadow: none;
     border: none
 }
-.primary-background-color{
-  background-color: #fe4e16!important;
-  color: #fff!important;
-
-}
-.secondary-background-color{
-  background-color: #242525;
-  color: #fe4e16
-
-}
-.tertiary-background-color{
-  background-color: #e3e3e3;
-}
+/* Add new image */
 .new{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 429px;
+    height: 449px;
     border: 2px solid #d1d5db;
     border-radius: 18px;
     -webkit-border-radius: 18px;
@@ -87,4 +59,66 @@
 
 .new .icon_btn:hover {
   color: #fe4e16;
+}
+
+
+
+/* Main colors */
+.primary-background-color{
+  background-color: #fe4e16!important;
+  color: #fff!important;
+
+}
+.secondary-background-color{
+  background-color: #242525;
+  color: #fe4e16
+
+}
+.tertiary-background-color{
+  background-color: #e3e3e3;
+}
+
+
+/* modal form */
+
+.contact-form {
+  background-color: #ede7e6;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 28px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #fe4e16;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  background-color: transparent;
+}
+.contact-form .input-text:focus {
+  outline: none;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+  -webkit-transform: translateY(-24px);
+          transform: translateY(-24px);
+}
+.contact-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #fe4e16;
+  cursor: text;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out,
+  -webkit-transform .2s ease-in-out;
 }

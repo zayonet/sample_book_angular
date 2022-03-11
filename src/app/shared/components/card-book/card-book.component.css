@@ -1,5 +1,5 @@
 .image{
-    max-height: 429px;
+    max-height: 449px;
     border-radius: 18px;
     -webkit-border-radius: 18px;
     -moz-border-radius: 18px;
@@ -60,6 +60,10 @@
 }
 .secondary-background-color{
   background-color: #242525;
+  color: #fe4e16
+
+}
+.primary-color{
   color: #fe4e16
 
 }

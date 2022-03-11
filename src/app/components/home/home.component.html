@@ -13,9 +13,9 @@
             fácil e em poucos passos.
           </p>
         </div>
-        <button type="button" class="btn primary-background-color rounded-pill">
+        <a routerLink="/book" class="btn primary-background-color rounded-pill">
           Requisite já um livro
-        </button>
+        </a>
       </div>
       <div class="col">
         <img src="assets/img/undraw_books.svg" alt="Book" class="img-fluid"/>
@@ -40,9 +40,10 @@
             <a href="#" class="btn btn-sm primary-background-color">Adicionar</a>
           </div>
         </div>
-      </div><div class="col-md-3 mb-3">
+      </div>
+      <div class="col-md-3 mb-3">
         <div class="card image">
-          <img [src]="image" class="card-img-top book-image" alt="...">
+          <img [src]="image1" class="card-img-top book-image" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ title }}</h5>
             <h6>{{ price | currency: 'BRL' : 'symbol': '1.2-3'}}</h6>
@@ -50,7 +51,26 @@
           </div>
         </div>
       </div>
-
+      <div class="col-md-3 mb-3">
+        <div class="card image">
+          <img [src]="image2" class="card-img-top book-image" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ title }}</h5>
+            <h6>{{ price | currency: 'BRL' : 'symbol': '1.2-3'}}</h6>
+            <a href="#" class="btn btn-sm primary-background-color">Adicionar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card image">
+          <img [src]="image3" class="card-img-top book-image" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ title }}</h5>
+            <h6>{{ price | currency: 'BRL' : 'symbol': '1.2-3'}}</h6>
+            <a href="#" class="btn btn-sm primary-background-color">Adicionar</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
